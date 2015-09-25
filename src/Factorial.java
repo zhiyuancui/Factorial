@@ -1,18 +1,18 @@
 /**
- * A java implementaion of factorail using iterative ways.
+ * A java implementation of factorial using iterative ways.
  * @author Zhiyuan
  *
  */
 public class Factorial {
 
 	/**
-	 * Accept an input number and return the
+	 * Accept a small input number and return the
 	 * factorial of it.
 	 * @param num which is should be less than 25,
 	 *        otherwise will overflow.
 	 * @return the factorial of input number
 	 */
-	public long calculateSmallInt(int num)
+	private long calculateSmallInt(int num)
 	{
 		if( num < 2 )
 		{
@@ -31,12 +31,12 @@ public class Factorial {
 	}
 	
 	/**
-	 * 
+	 * Implemente big number multiply
 	 * @param s1
 	 * @param s2
-	 * @return
+	 * @return return the result in a string
 	 */
-	public String bigIntMultiply(String s1, String s2)
+	private String bigIntMultiply(String s1, String s2)
 	{
 		if( s1.equals("1") || s2.equals("1") )
 		{
@@ -70,27 +70,27 @@ public class Factorial {
 			digit = digit % 10;
 			s = digit + s;
 		}
-		int index = 0;
-		while(index < result.length && s.charAt(index) == '0' )
-		{
-			index++;
-		}
 		
-		return s.substring(index);
+		//remove the first 0 
+		return s.charAt(0) == '0' ? s.substring(1) : s;
 	}
 	
-	
-	public int toInt(Character c)
+	/**
+	 * Convert character to int
+	 * @param c
+	 * @return
+	 */
+	private int toInt(Character c)
 	{
 		return c-'0';
 	}
 	
 	/**
-	 * 
+	 * The main function to calculate factorial
 	 * @param n
 	 * @return
 	 */
-	public String calculate(int n )
+	private String calculate(int n )
 	{
 		if( n <= 20 )
 		{
@@ -112,7 +112,6 @@ public class Factorial {
 	public static void main(String[] args)
 	{
 		Factorial f = new Factorial();
-		//System.out.println(f.calculate(26));
-		System.out.println(f.calculate(21));
+		System.out.println(f.calculate(26));
 	}
 }
